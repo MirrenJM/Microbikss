@@ -1,0 +1,32 @@
+
+.mobileControlsContainer{
+ display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.upDiv{
+    display: inline-block;
+}
+.buttonSpace{
+    margin-left: 10em
+}
+
+.spaceButton{
+    padding-top: 6px;
+}
+.upButton{
+    padding-top: 3px ;
+    
+}
+.downButton{
+    padding-top: 3px;
+    background-color: #ffd500;
+}
+.rightButton{
+    padding-top: 3px;
+    background-color: #009b48;
+}
+.leftButton{
+    padding-top: 3px;
+    background-color: #0046ad;
+}

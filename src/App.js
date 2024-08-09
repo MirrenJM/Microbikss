@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect, useMemo } from "react";
 import Header from './components/Header';
-import ControlPanel from "./components/ControlPanel";
+import ControlPanel from "./ControlPanel";
 import Game from './components/Game';
 
 

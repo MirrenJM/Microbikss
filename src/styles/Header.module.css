@@ -1,4 +1,4 @@
-.rubik-micro {
+.rubikMicro {
   text-align: center;
   font-family: "Rubik", sans-serif;
  color: #ddd;
@@ -10,6 +10,11 @@
    text-shadow:  0px 2px 5px #000;
   
 }
+/* .rubikMicro ::after{
+  content: "";
+  font-size: 150px;
+  transition: all 10s;
+} */
 .micro-red{
   -webkit-text-fill-color: #b71234;
 }
@@ -22,7 +27,8 @@
 .micro-yellow{
   -webkit-text-fill-color: #ffd500;
 }
-
+/* 
 .flash{
     -webkit-text-stroke: 10px;
-}
+    text-shadow:  5px 5px 20px #000;
+} */

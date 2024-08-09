@@ -7,11 +7,11 @@ button{
     padding: 8px 10px;
       font-family: "Rubik", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 700;
+  font-weight: 800;
   font-style: normal;
  border: solid 2px #fff;
 box-shadow: 0px 0px 3px #000;
- font-size: 16px;
+ font-size: 18px;
 }
 .container{
     /* display: flex;
@@ -72,12 +72,12 @@ background-color: #009b48;
 margin-left: auto;
 }
 .startTimerButton {
-  font-size: 10px;
+ 
   padding: 2px;
   background-color:  #ffd500;
 }
 .pauseResetButton{
-    font-size: 20px;
+   
    padding: 2px;
 }
 

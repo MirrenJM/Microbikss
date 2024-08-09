@@ -9,8 +9,9 @@
   box-sizing: border-box;
 }
 
+
+
 .box{
-   background: #fff;
   border: 3px solid #fff0f179;
   border-radius: 3px;
   font-size: 24px;
@@ -26,6 +27,34 @@
    font: 800 24px ;
   -webkit-text-fill-color: white;
   -webkit-text-stroke: 1px;
+
+/* transition: background-color 5s linear; */
+
+
+  /* animation: fadeBackground .5s ease;  */
+}
+
+
+
+@keyframes fadeBackground {
+
+        /* 0% {opacity:0%}
+        40% {opacity:40%}
+        60% {opacity:60%;}
+        100% {opacity:100%;} */
+
+   /* from { transform:translateY(5px);}
+    to { transform:translateY(0); opacity: 1;} */
+
+    /* 0%{
+         opacity: 0;
+        transform: translateY(10px);
+        background-color: white;
+    }
+    100%{
+        opacity: 1;
+          transform: translateY(0);
+    } */
 }
 .gridContainer {
   display: grid;
@@ -52,6 +81,8 @@
   text-align: center;
 }
 
+
+
 .rubikNums {
   font-family: "Rubik", sans-serif;
   font-optical-sizing: auto;
@@ -59,7 +90,7 @@
   font-style: normal;
 }
 
-#swishLeft {
+/* #swishLeft {
     position: absolute;
     left: -100px;
     width: 100px;
@@ -81,4 +112,4 @@
 
 @keyframes swishLeft {
     100% { left: 0; }
-}
+} */

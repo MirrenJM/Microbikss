@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styles from "../styles/ControlPanel.module.css";
+ import { useStoredState } from "../customHooks/useStoredState";
 
 function Timer({ timer }) {
-  const [time, setTime] = useState(0);
+  const [time, setTime] = useStoredState(0, 'storeTime');
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
@@ -18,20 +19,20 @@ function Timer({ timer }) {
   const minutes = Math.floor((time % 360000) / 6000);
   const seconds = Math.floor((time % 6000) / 100);
 
-    function handleStartTimerClick() {
-      if (!isActive) {
-        setIsActive(true);
-      }
+  function handleStartTimerClick() {
+    if (!isActive) {
+      setIsActive(true);
     }
-    
-    function handlePauseResetClick() {
-      if (isActive) {
-        setIsActive(false);
-      } else {
-        setTime((prevtime) => 0);
-      }
+  }
+
+  function handlePauseResetClick() {
+    if (isActive) {
+      setIsActive(false);
+    } else {
+      setTime((prevtime) => 0);
     }
-   
+  }
+
   return (
     <div className={styles.timerContainer}>
       {timer && (

@@ -9,7 +9,7 @@ function Box(props){
     return (
       <div
         style={{ backgroundColor: colour, border: highlight }}
-        className={`${styles.box} ${styles.swishLeft} ${styles.rubikNums}`}
+        className={`${styles.box} ${styles.swishLeft} ${styles.rubikNums} ${styles.fadeInRight}`}
         id={swishLeft}
       >
         {props.value}
