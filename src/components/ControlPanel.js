@@ -2,27 +2,29 @@ import React, { useState } from "react";
 import Timer from "./Timer";
 import styles from "../styles/ControlPanel.module.css";
 
-function ControlPanel({newGame}) {
+function ControlPanel({ handleNewGame, handleInstructions, handleTimer}) {
   const [instructions, setInstructions] = useState(false);
-  const [game, setNewGame] = useState();
+  const [game, setNewGame] = useState(false);
   const [timer, setTimer] = useState(false);
 
   function handleNewGameClick() {
-    //newGame.handleNewGame();
+    console.log("button is clicked in the control panel");
+    handleNewGame();
   }
 
   function handleInstructionClick() {
-    console.log("instructions click");
+    handleInstructions();
   }
 
   function handleTimerClick() {
-    setTimer(!timer);
+    handleTimer();
+    // setTimer(!timer);
   }
 
   return (
     <div className={styles.container}>
       <div className={styles.controlPanelContainer}>
-        <button className={styles.newGameButton} onClick={newGame}>
+        <button className={styles.newGameButton} onClick={handleNewGameClick}>
           New Game
         </button>
         <button
@@ -36,7 +38,7 @@ function ControlPanel({newGame}) {
         </button>
       </div>
 
-      <Timer timer={timer} />
+     
     </div>
   );
 }

@@ -3,12 +3,18 @@
  display: flex;
   flex-direction: column;
   align-items: center;
+  align-self: center;
+  width: 222px;
+  margin-top: 20px;
+  
+    display: inline-block ;
+    vertical-align: middle;
 }
 .upDiv{
     display: inline-block;
 }
 .buttonSpace{
-    margin-left: 10em
+    margin-left: 8em
 }
 
 .spaceButton{

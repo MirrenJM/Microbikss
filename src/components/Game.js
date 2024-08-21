@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Grid from "./Grid";
 import MobileControls from "./MobileControls";
+
 import {
   useStoredBoxContent,
   useStoredHistory,
   useStoredMoves,
 } from "../customHooks/useStoredState";
 
-import { newGame } from "./NewGame";
-
-function Game() {
+function Game({gameState, newGame}) {
   const intitialBoxContent = [
     [
       { value: "1", colour: "#b71234" },
@@ -40,15 +39,25 @@ function Game() {
   const [activeSquare, setActiveSquare] = useState([2, 2]);
   const [swishLeft, setSwishLeft] = useState(([], [], [], []));
   const [swishUp, setSwishUp] = useState(([], [], [], []));
+  const [style, setStyle] = useState({
+    swish: "",
+    row: [],
+    column: [],
+  });
   const [moves, setMoves] = useStoredMoves(0);
-  const [boxContent, setBoxContent] = useStoredBoxContent(intitialBoxContent);
-  const [history, setHistory] = useStoredHistory(boxContent);
+  const [boxContent, setBoxContent] = useStoredBoxContent(gameState);
+  const [history, setHistory] = useStoredHistory([boxContent]);
+  const prevNewGame = useRef(newGame);
 
-  function handleNewGame() {
-    setBoxContent(() => intitialBoxContent);
-    setHistory(() => boxContent);
-    setMoves(0);
-  }
+  useEffect(() => {
+    if (newGame && prevNewGame.current !== newGame) {
+      setBoxContent(gameState);
+      setHistory([gameState]);
+      setMoves(0);
+      console.log("useeffect game");
+    }
+    prevNewGame.current = newGame;
+  }, [newGame, gameState]);
 
   useEffect(() => {
     function handleKeyDown(e) {
@@ -104,8 +113,11 @@ function Game() {
       const temp = newContent[0][activeCollumn];
       for (let i = 0; i < newContent.length - 1; i++) {
         newContent[i][activeCollumn] = newContent[i + 1][activeCollumn];
+
+        newContent[i][activeCollumn].spin = "up"; 
       }
       newContent[newContent.length - 1][activeCollumn] = temp;
+      newContent[newContent.length - 1][activeCollumn].spin = "up";
 
       return newContent;
     });
@@ -118,6 +130,12 @@ function Game() {
       ]);
       return newMoves;
     });
+     setStyle({
+       swish: "up",
+       row: [0, 1, 2, 3],
+       column: [activeCollumn],
+     });
+
   }
   function handleLeft() {
     const activeRow = activeSquare[0];
@@ -127,7 +145,9 @@ function Game() {
 
       const temp = newContent[activeRow][0];
       for (let i = 0; i < newContent[activeRow].length - 1; i++) {
-        newContent[activeRow][i] = newContent[activeRow][i + 1];
+        newContent[activeRow][i] = newContent[activeRow][i + 1]; 
+        
+        
       }
       newContent[activeRow][newContent[activeRow].length - 1] = temp;
 
@@ -142,6 +162,13 @@ function Game() {
       ]);
       return newMoves;
     });
+   
+    setStyle({
+        swish: "left",
+        row: [activeRow],
+        column: [0,1,2,3]
+    });
+
   }
 
   function handleDown() {
@@ -176,22 +203,25 @@ function Game() {
       console.log(moves + " space after");
     }
   }
+
   return (
     <>
-      
-      <Grid
-        boxContent={boxContent}
-        activeSquare={activeSquare}
-        swishLeft={swishLeft}
-        swishUp={swishUp}
-      />
-      <MobileControls
-        handleDown={handleDown}
-        handleLeft={handleLeft}
-        handleUp={handleUp}
-        handleRight={handleRight}
-        handleSpace={handleSpace}
-      />
+      <div className="gameBox">
+        <Grid
+          boxContent={boxContent}
+          activeSquare={activeSquare}
+          swishLeft={swishLeft}
+          swishUp={swishUp}
+          style={style}
+        />
+        <MobileControls
+          handleDown={handleDown}
+          handleLeft={handleLeft}
+          handleUp={handleUp}
+          handleRight={handleRight}
+          handleSpace={handleSpace}
+        />
+      </div>
     </>
   );
 }

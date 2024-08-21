@@ -2,29 +2,28 @@ import React from "react";
 import styles from '../styles/Grid.module.css';
 import Box from './Box';
 
-function Grid({boxContent, activeSquare, swishLeft, swishUp}){
+function Grid({boxContent, activeSquare, style}){
 
 
 return (
-  <div className={styles.gameContainer}>
+
     <div className={styles.gridContainer}>
       {boxContent.map((row, i) => (
-        <div key={i} className={styles.gridRow}>
+        <div key={'row'+ i} className={styles.gridRow}>
           {row.map((col, j) => (
             <Box
-              className={styles.gridItem}
+              className={`${styles.gridItem} ${col===3&&styles.end}`}
               key={col.colour + col.value}
               value={col.value}
               colour={col.colour}
               selected={activeSquare[0] === i && activeSquare[1] === j}
-              swishLeft={swishLeft.includes[(i, j)]}
-              swishUp={swishUp.includes[(i, j)]}
+              style = {style.row.includes(i) & style.column.includes(j) ? style.swish : null}
             />
           ))}
         </div>
       ))}
     </div>
-  </div>
+ 
 );
 }
 

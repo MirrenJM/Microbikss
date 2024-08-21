@@ -3,14 +3,13 @@ import styles from '../styles/Grid.module.css';
 
 function Box(props){
     let colour = props.colour;
-    let highlight = props.selected ? "4px solid #f72f35" : null;
-    let swishLeft = props.swishLeft ? "swishLeft" : null;
-    let swishUp = props.swishUp ? "swishUp" : null;
+    let highlight = props.selected ? "4px solid #ff991c" : null;  // #f72f35 #ff272d
+    let style = props.style;
+  
     return (
       <div
         style={{ backgroundColor: colour, border: highlight }}
-        className={`${styles.box} ${styles.swishLeft} ${styles.rubikNums} ${styles.fadeInRight}`}
-        id={swishLeft}
+        className={`${styles.box} ${styles.rubikNums} ${styles[style]} `}
       >
         {props.value}
       </div>

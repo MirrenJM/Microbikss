@@ -109,3 +109,46 @@
 @keyframes slide {
     100% { left: 0; }
 }
+
+
+.instructionContainer{
+width: 222px;
+float: right;
+grid-area: right;
+justify-items: end;
+margin: 40px 0px;
+
+}
+.gameContainer {
+  
+  text-align: center;
+
+  
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-areas:'left middle right'; 
+  justify-content:center ;
+  align-content: center;
+  
+  
+  
+
+}
+.gameBox{
+
+    display: inline-block ;
+     vertical-align: middle;
+
+    grid-area: middle;
+    margin:0px 80px;
+}
+.leftbox{ 
+  grid-area: left;
+  width: 222px;
+}
+.timerDiv{
+  margin: 12px;
+  height: 44px; 
+   display: flex;
+  justify-content: center;
+}

@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: row;
   justify-content:center ;
+
 }
 * {
   box-sizing: border-box;
@@ -27,14 +28,51 @@
    font: 800 24px ;
   -webkit-text-fill-color: white;
   -webkit-text-stroke: 1px;
-
-/* transition: background-color 5s linear; */
-
-
-  /* animation: fadeBackground .5s ease;  */
+/* animation: spinUp 10s  linear; /*0.3s*/  
+position: relative;
+animation: win 1s linear; 
+}
+/* .box::before{
+  content: 'X';
+  background-color:inherit;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -50px;
+  border: 3px solid #fff0f179;
+  border-radius: 3px;
+  left: -2px;
+  animation: moveTop 4s forwards linear;
+} */
+@keyframes moveTop{
+0%{
+  transform: translateY(-150px);
+  
 }
 
+100%{
+  transform: translateY(-300.5px);
+  
+}
+}
 
+@keyframes win {
+  0%{
+   transform: rotate(0deg) rotate3d(1,1,1,45deg);
+}
+25%{
+  transform: translateY(-200px) rotate(360deg) scale(10px);
+ 
+}
+50%{
+  transform: translateY(-400px);
+
+}
+100%{
+ transform: rotate3d(2,2,2,145deg) translateY(200px)  rotate(360deg) scale(20px);
+
+}
+}
 
 @keyframes fadeBackground {
 
@@ -66,6 +104,8 @@
    padding: 10px;
    border: 2px solid black;
    border-radius: 3px;
+   /* overflow: hidden; */
+ 
   /*gap: 10px;  Space between items */
 }
 
@@ -73,6 +113,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* Adjust column count as needed */
   /*gap: 10px;  Space between items */
+ 
 }
 
 .gridItem {
@@ -81,14 +122,100 @@
   text-align: center;
 }
 
-
-
 .rubikNums {
   font-family: "Rubik", sans-serif;
   font-optical-sizing: auto;
   font-weight: 800;
   font-style: normal;
 }
+.left{ animation: spinLeft 1s forwards linear;}
+
+@keyframes spinUp{
+  0%{
+    transform: translateY(51.5px) ;
+  }
+  100%{
+    transform: translateY(0px);
+  }
+}
+@keyframes spinLeft{
+  0%{
+    transform: translateX(50px) ;
+  }
+  100%{
+    transform: translateX(0px);
+  }
+}
+@keyframes fly{
+
+0%{
+  transform: translateX(-44px) ;
+transform: rotate(90deg);
+
+}
+100%{
+  transform: translateY(-100px);
+  transform: translate3d(20px);
+}
+}
+
+/* .left{
+  position: relative;
+  overflow: hidden;
+  
+    transition: background-color 1s linear;
+    animation: scroll 1s 1s linear backwards;
+    
+ }
+ @keyframes scroll{
+   0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 100% 0;
+      }
+ } */
+
+/* .left::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  background-color: white !important;
+  font-size: 10px;
+  transition: all 1s; 
+   
+  
+} */
+
+   /* .btn {
+  text-decoration: none;
+  border: 2px solid #764abc;
+  color: #764abc;
+  padding: 10px 20px;
+  border-radius: 25px;
+    transition: all 1s;
+  position: relative;
+}
+.btn::before {
+  content: "00000";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #764abc;
+  transition: all 1s;
+    z-index: -1;
+  transform: translateX(-100%);
+}
+
+.btn:hover::before {
+  transform: translateX(0);
+} */
+
 
 /* #swishLeft {
     position: absolute;
