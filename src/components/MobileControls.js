@@ -5,17 +5,17 @@ function MobileControls({handleDown, handleLeft, handleRight, handleSpace, handl
     return (
       <div className={styles.mobileControlsContainer}>
         <div className={styles.upDiv}>
-        <button className={styles.upButton} onClick={handleUp}>↑</button>
+        <button className={`${styles.upButton} ${styles.btn} `} onClick={handleUp}>↑</button>
         </div>
         <div className={styles.buttonRow}>
-        <button className={styles.leftButton} onClick={handleLeft}>←</button>
-        <button className={styles.rightButton} onClick={handleRight}>→</button>
+        <button className={`${styles.leftButton} ${styles.btn} `} onClick={handleLeft}>←</button>
+        <button className={`${styles.rightButton} ${styles.btn} `} onClick={handleRight}>→</button>
         </div>
         <div>
-        <button className={styles.downButton} onClick={handleDown}>↓</button>
+        <button className={`${styles.downButton} ${styles.btn} `} onClick={handleDown}>↓</button>
         </div>
-        <div className={styles.buttonSpace}>
-        <button className={styles.spaceButton} onClick={handleSpace}>Undo</button>
+        <div className={`${styles.buttonSpace} `}>
+        <button className={`${styles.spaceButton} ${styles.btn} `} onClick={handleSpace}>Undo</button>
         </div>
       </div>
     );

@@ -1,0 +1,180 @@
+
+:root{
+    --delay: 1s; 
+    --duration: 0.7s;
+}
+
+@keyframes gridRow0 {
+    0%{
+         transform: scale(1)
+         
+    }
+    50%{
+        transform: scale(1.1);
+        border: solid 3px red;
+       
+    }
+    100%{
+        transform: scale(1)
+    }
+}
+@keyframes raise {
+    0%{
+         transform: scale(1)
+         
+    }
+    50%{
+        transform: scale(1.3);
+      
+    }
+    100%{
+        transform: scale(1)
+    }
+}
+@keyframes changeColourRed{
+    0%{}
+    100%{
+         background-color: #b71234;
+    }
+}
+@keyframes changeColourBlue{
+    0%{}
+    100%{
+         background-color: #0046ad;
+    }
+}
+@keyframes changeColourYellow{
+    0%{}
+    100%{
+         background-color: #ffd500;
+    }
+}
+@keyframes changeColourGreen{
+    0%{}
+    100%{
+         background-color: #009b48;
+    }
+}
+.box00{
+    background-color: #b71234;
+    animation: gridRow0 1s , raise 1s 4s,  gridRow0 1s 5s, changeColourRed 1s 24s forwards, raise 1s 25s, gridRow0 1s 26s;
+}
+.box01{
+    background-color: #b71234;
+      animation: gridRow0 1s , raise 1s 9s, gridRow0 1s 11s, changeColourBlue 1s 24s forwards, raise 1s 25s, gridRow0 1s 27s;
+}
+.box02{
+    background-color: #b71234;
+      animation:gridRow0 1s , raise 1s 14s, gridRow0 1s 17s, changeColourGreen 1s 24s forwards, raise 1s 25s, gridRow0 1s 28s;
+    
+}
+.box03{
+    background-color: #b71234;
+       animation:gridRow0 1s , raise 1s 19s, gridRow0 1s 23s, changeColourYellow 1s 24s forwards, raise 1s 25s, gridRow0 1s 29s;
+   
+}
+.box10{
+    background-color: #0046ad;
+   animation:gridRow0 1s 1s ,raise 1s 4s, gridRow0 1s 6s, changeColourRed 1s 24s forwards, raise 1s 30s, gridRow0 1s 32s;
+}
+.box11{
+     background-color: #0046ad;
+      animation:gridRow0 1s 1s ,raise 1s 9s, gridRow0 1s 12s, changeColourBlue 1s 24s forwards, raise 1s 30s,  gridRow0 1s 33s;
+
+}
+.box12{
+     background-color: #0046ad;
+      animation:gridRow0 1s 1s ,raise 1s 14s, gridRow0 1s 18s, changeColourGreen 1s 24s forwards, raise 1s 30s, gridRow0 1s 34s;
+}
+.box13{
+     background-color: #0046ad;
+      animation: gridRow0 1s 1s , raise 1s 19s, gridRow0 1s 20s, changeColourYellow 1s 24s forwards, raise 1s 30s, gridRow0 1s 31s;
+}
+.box20{
+    background-color: #009b48;
+  animation:gridRow0 1s 2s , raise 1s 4s,  gridRow0 1s 7s, changeColourRed 1s 24s forwards, raise 1s 35s, gridRow0 1s 38s;
+}
+.box21{
+     background-color: #009b48;
+      animation:gridRow0 1s 2s ,raise 1s 9s, gridRow0 1s 13s, changeColourBlue 1s 24s forwards, raise 1s 35s, gridRow0 1s 39s;
+}
+.box22{
+     background-color: #009b48;
+      animation:gridRow0 1s 2s , raise 1s 14s, gridRow0 1s 15s, changeColourGreen 1s 24s forwards,  raise 1s 35s, gridRow0 1s 36s;
+    
+}
+.box23{
+     background-color: #009b48;
+      animation:gridRow0 1s 2s ,raise 1s 19s, gridRow0 1s 21s, changeColourYellow 1s 24s forwards,  raise 1s 35s, gridRow0 1s 37s;
+}
+.box30{
+    background-color: #ffd500;
+  animation:gridRow0 1s 3s ,raise 1s 4s, gridRow0 1s 8s, changeColourRed 1s 24s forwards, raise 1s 40s, gridRow0 1s 44s;
+}
+.box31{
+     background-color: #ffd500;
+      animation:gridRow0 1s 3s ,raise 1s 9s, gridRow0 1s 10s, changeColourBlue 1s 24s forwards, raise 1s 40s, gridRow0 1s 41s;
+}
+.box32{
+     background-color: #ffd500;
+      animation:gridRow0 1s 3s ,raise 1s 14s,  gridRow0 1s 16s, changeColourGreen 1s 24s forwards, raise 1s 40s, gridRow0 1s 42s;
+}
+.box33{
+     background-color: #ffd500;
+      animation:gridRow0 1s 3s , raise 1s 19s, gridRow0 1s 22s, changeColourYellow 1s 24s forwards, raise 1s 40s, gridRow0 1s 43s;
+}
+
+.box{
+  border: 3px solid #fff0f179;
+  border-radius: 3px;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 44px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 44px;
+  margin: 3px;
+   font: 800 24px ;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke: 1px;  
+ position: relative;
+
+}
+
+.gridContainer {
+  display: grid;
+  width: fit-content;
+  
+   justify-content: center;
+  align-content: center;
+   place-self: center;
+   padding: 10px;
+   border: 2px solid black;
+   border-radius: 3px;
+   overflow: hidden;
+ 
+  /*gap: 10px;  Space between items */
+}
+
+.gridRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Adjust column count as needed */
+  /*gap: 10px;  Space between items */
+ 
+}
+
+.gridItem {
+  /*padding: 10px;*/
+  border: 1px solid #fff0f179;
+  text-align: center;
+}
+
+.rubikNums {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}

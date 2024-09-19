@@ -1,17 +1,18 @@
 
-button{
+.newGameButton, .instructionButton, .timerButton, .startTimerButton, .pauseResetButton, .clockTime{
     background-color: #b71234;
     margin: 2px 20px;
     color: #fff;
     border-radius: 10px;
-    padding: 8px 10px;
+    padding: 6px 8px;
       font-family: "Rubik", sans-serif;
   font-optical-sizing: auto;
   font-weight: 800;
   font-style: normal;
  border: solid 2px #fff;
 box-shadow: 0px 0px 3px #000;
- font-size: 18px;
+ font-size: 20px;
+ font-optical-sizing: auto;
 }
 .container{
     /* display: flex;
@@ -22,9 +23,15 @@ box-shadow: 0px 0px 3px #000;
   /* height: 100vh; */
   display: flex;
   justify-content: center;
-  
+  margin: auto;
   align-items: center;
 }
+/* @media screen and (max-width: 700px) {
+  .controlPanelContainer{
+  flex-direction: column;
+
+  }
+} */
 
 .controlPanelContainer{
 /* display: inline-flexbox;
@@ -33,7 +40,8 @@ box-shadow: 0px 0px 3px #000;
   align-self: center;
   position: relative;
   display: flex;
-  gap: 10px;
+  gap: .2em;
+   
 }
 
 .timerContainer{
@@ -54,10 +62,18 @@ box-shadow: 0px 0px 3px #000;
   align-items: center;
   justify-content: center;
   transition: transform 0.3s ease-in-out; /* Smooth transition for sliding effect */
+  margin-top: 12px;
 
 }
 .timerContainer.hidden {
   /* transform: translateX(100%); Slide out to the right */
+}
+.clockTime{
+ width:100px; 
+  border-radius: 3px;
+  padding: 3px 5px;
+  margin-left: 12px;
+  background-color: #0046ad;
 }
 
 .newGameButton{
@@ -73,11 +89,16 @@ background-color: #009b48;
 }
 .startTimerButton {
  
-  padding: 2px;
+  padding: 4px;
   background-color:  #ffd500;
 }
 .pauseResetButton{
    
-   padding: 2px;
+   padding: 4px;
 }
-
+@media screen and (max-width: 1000px) {
+.newGameButton, .instructionButton, .timerButton, .startTimerButton, .pauseResetButton, .clockTime{
+   font-size: 12px;
+   padding: auto;
+}
+}
