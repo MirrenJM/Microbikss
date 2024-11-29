@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "../styles/ControlPanel.module.css";
  import { useStoredState } from "../customHooks/useStoredState";
 
-function Timer({ timer, newGame }) {
+function Timer({ timer, newGame, timerEnter }) {
   const [time, setTime] = useStoredState(0, 'storeTime');
   const [isActive, setIsActive] = useState(false);
 
@@ -30,6 +30,10 @@ function Timer({ timer, newGame }) {
     const hours = Math.floor(time / 3600);
     const minutes = Math.floor((time % 3600) / 60);
     const seconds = time % 60;
+
+    useEffect(() => {
+      setIsActive(!isActive);
+    },[timerEnter]);
 
   function handleStartTimerClick() {
     if (!isActive) {

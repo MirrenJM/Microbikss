@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Timer from "./Timer";
 import styles from "../styles/ControlPanel.module.css";
 
-function ControlPanel({ handleNewGame, handleInstructions, handleTimer}) {
+function ControlPanel({ handleNewGame, handleInstructions, handleTimer, handleHighscoreBoard}) {
   const [instructions, setInstructions] = useState(false);
   const [game, setNewGame] = useState(false);
   const [timer, setTimer] = useState(false);
@@ -20,6 +20,10 @@ function ControlPanel({ handleNewGame, handleInstructions, handleTimer}) {
     handleTimer();
     // setTimer(!timer);
   }
+  function handleHighscoreBoardClick() {
+    handleHighscoreBoard();
+    
+  }
 
   return (
     <div className={styles.container}>
@@ -36,9 +40,10 @@ function ControlPanel({ handleNewGame, handleInstructions, handleTimer}) {
         <button className={styles.timerButton} onClick={handleTimerClick}>
           Timer
         </button>
+        <button className={styles.highscoresButton} onClick={handleHighscoreBoardClick}>
+          Highscores Board
+        </button>
       </div>
-
-     
     </div>
   );
 }

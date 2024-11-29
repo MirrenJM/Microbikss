@@ -114,17 +114,54 @@
   }
 }
 
-.instructionContainer {
-  /* float: right;
-grid-area: right;
-justify-items: end; */
-  max-width: 292px;
-  grid-column: auto / span 4;
-  grid-column-start: 9;
-  margin: 10px;
-  align-self: center;
+
+.gameContainer {
+  text-align: center;
+
+  /* display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-areas: "left middle right";
+  justify-content: center;
+  align-content: center;
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 1fr auto;
+  justify-items: center; */
+
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   align-content: space-between;
+  justify-content: space-evenly;
+ 
 }
 
+.gameBox {
+  /* display: inline-block;
+  vertical-align: middle;
+
+  grid-area: middle;
+  margin: 0px 80px;
+  grid-column: auto / span 4;
+  grid-column-start: 5; */
+
+  justify-content: start;
+  position:relative;
+  top: 0px;
+  left: auto;
+  right: auto; 
+  margin-top: 12px;
+
+  position: relative;
+  top: 0px;
+}
+.instructionContainer {
+
+  max-width: 292px;
+  margin: 10px;
+ 
+}
 .instructionsBox {
   border: solid 2px rgb(0, 0, 0);
   padding: 10px;
@@ -137,44 +174,41 @@ justify-items: end; */
   flex-direction: column;
   padding-bottom: 20px;
 }
+.highscoresContainer {
+
+  max-width: 292px;
+  grid-column: auto / span 4;
+  grid-column-start: 1;
+  margin: 10px;
+  align-self: center;
+  margin-top: 12px;
+
+   align-self:first baseline;
+  position: relative;
+  top: 0px;
+  right:0px;
+}
+
+
+.highscoresBoard {
+  border: solid 2px rgb(0, 0, 0);
+  padding: 10px;
+  border-radius: 15px;
+
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  
+  /* padding-bottom: 20px; */
+}
 .instructionsGrid {
   display: block;
   max-width: fit-content;
   margin-left: auto;
   margin-right: auto;
 }
-.gameContainer {
-  text-align: center;
-
-  display: grid;
-  grid-template-columns: auto auto auto;
-  grid-template-areas: "left middle right";
-  justify-content: center;
-  align-content: center;
-
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 1fr auto;
-  justify-items: center;
-
-  /* display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center; */
-}
-
-.gameBox {
-  display: inline-block;
-  vertical-align: middle;
-
-  grid-area: middle;
-  margin: 0px 80px;
-  grid-column: auto / span 4;
-  grid-column-start: 5;
-
-  justify-content: start;
-}
-
 .timerDiv {
   margin: 12px;
   height: 44px;

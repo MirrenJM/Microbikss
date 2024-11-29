@@ -5,6 +5,7 @@ import ControlPanel from "./components/ControlPanel";
 import Timer from "./components/Timer";
 import Game from './components/Game';
 import Instructions from "./components/Instructions";
+import HighscoresBoard from "./components/HighscoresBoard";
 import { useStoredBoxContent, useStoredState } from "./customHooks/useStoredState";
 
 
@@ -40,6 +41,7 @@ import { useStoredBoxContent, useStoredState } from "./customHooks/useStoredStat
 const jumbled = jumble();
 const [newGameState, setNewGameState] = useStoredState(jumbled, "newgame");
 const [isInstructions, setIsInstructions ] = useState(false); 
+const [isHighscoresBoard, setIsHighscoresBoard] = useState(false);
 const [newGame, setNewGame] = useState(false);
  const [timer, setTimer] = useState(false);
 const isInitialMount = useRef(true);
@@ -104,6 +106,9 @@ function showTimer(){
   setTimer(!timer);
 }
 
+function showHighscoresBoard(){
+  setIsHighscoresBoard(!isHighscoresBoard);
+}
   return (
     <>
       <div className="app">
@@ -112,11 +117,15 @@ function showTimer(){
           handleNewGame={startNewGame}
           handleInstructions={showInstructions}
           handleTimer={showTimer}
+          handleHighscoreBoard={showHighscoresBoard}
         />
         <div className="gameContainer">
-          <Game gameState={newGameState} newGame={newGame} timer={timer} />
           <div className="instructionContainer">
             {isInstructions && <Instructions />}
+          </div>
+          <Game gameState={newGameState} newGame={newGame} timer={timer} />
+          <div className="highscoresContainer">
+            {isHighscoresBoard && <HighscoresBoard />}
           </div>
         </div>
       </div>

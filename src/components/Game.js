@@ -78,12 +78,15 @@ function Game({ gameState, newGame, timer }) {
   const [rowCount, setRowCount] = useState([0, 0, 0, 0]);
   const prevNewGame = useRef(newGame);
   const [hasWon, setHasWon] = useState(false);
+  const [timerEnter, setTimerEnter] = useState(false);
+  
 
   useEffect(() => {
     if (newGame && prevNewGame.current !== newGame) {
       setBoxContent(() => gameState); // gameState
       setHistory([gameState]);
       setMoves(0);
+      // setTimerEnter(!timerEnter);
       setStyle({ swish: "jumble", row: [0, 1, 2, 3], column: [0, 1, 2, 3] });
       // update rowcount so that row key changes every time.
       setRowCount((prevCount) => {
@@ -98,6 +101,7 @@ function Game({ gameState, newGame, timer }) {
     //   // reset count on very first render
     //   setRowCount([0, 0, 0, 0]);
     // }
+    
     prevNewGame.current = newGame;
   }, [newGame, gameState]);
 
@@ -117,6 +121,9 @@ function Game({ gameState, newGame, timer }) {
           break;
         case "ArrowRight":
           handleRight();
+          break;
+        case "Enter":
+          handleEnter();
           break;
         case " ":
           handleSpace();
@@ -252,6 +259,12 @@ function Game({ gameState, newGame, timer }) {
     }
   }
 
+  function handleEnter(){
+    if (newGame && prevNewGame.current !== newGame) {
+    setTimerEnter(!timerEnter);
+    }
+  }
+
   useEffect(() => {
     const won = checkWin();
     // console.log(won);
@@ -323,7 +336,7 @@ function Game({ gameState, newGame, timer }) {
     <>
       <div className="gameBox">
         <div style={{ height: "44px"}}>
-          <Timer timer={timer} />
+          <Timer timer={timer} timerEnter = {timerEnter} />
           {hasWon && <Winner/>}
         </div>
 
